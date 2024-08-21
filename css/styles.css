@@ -1,0 +1,177 @@
+body {
+    font-family: Arial, sans-serif;
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+    background-color: #f4f4f4;
+}
+
+header {
+    background-color: #333;
+    color: #fff;
+    padding: 20px 0;
+    text-align: center;
+    transition: background-color 0.3s ease; /* Navbar Animation */
+}
+
+header.scrolled {
+    background-color: #222; /* Darker background on scroll */
+}
+
+header nav ul {
+    list-style: none;
+    padding: 0;
+}
+
+header nav ul li {
+    display: inline;
+    margin: 0 15px;
+}
+
+header nav ul li a {
+    color: #fff;
+    text-decoration: none;
+    font-weight: bold;
+}
+
+.header-content h1 {
+    margin: 0;
+    font-size: 2.5em;
+    overflow: hidden; /* Typewriter Effect */
+    border-right: .15em solid orange; /* Typewriter cursor */
+    white-space: nowrap; /* Typewriter single line */
+    margin: 0 auto;
+    letter-spacing: .15em;
+    animation: typing 3.5s steps(30, end), blink-caret .75s step-end infinite;
+}
+
+@keyframes typing {
+    from { width: 0; }
+    to { width: 100%; }
+}
+
+@keyframes blink-caret {
+    from, to { border-color: transparent; }
+    50% { border-color: orange; }
+}
+
+.header-content p {
+    margin: 0;
+    font-size: 1.2em;
+}
+
+#profile {
+    padding: 50px;
+    background: linear-gradient(
+        rgba(0, 0, 0, 0.5), 
+        rgba(0, 0, 0, 0.5)
+    ), url('https://deepdreamgenerator.com/storage/fast_queue/temp_images/d34b215cf359c717201af3bef02683ff18fac68a.jpg'); /* Replace with the correct image URL */
+    background-size: cover;
+    background-attachment: fixed;
+    text-align: center;
+    color: #fff; /* Ensure text is visible */
+}
+
+#profile img {
+    border-radius: 50%;
+    width: 150px;
+    height: 150px;
+    margin-bottom: 20px;
+    transition: transform 0.3s ease; /* Image Hover Zoom Effect */
+    border: 3px solid #fff; /* Added border for better visibility */
+}
+
+#profile img:hover {
+    transform: scale(1.1);
+}
+
+#profile p {
+    font-size: 1.1em;
+    line-height: 1.6;
+}
+
+#projects {
+    padding: 50px;
+    background-color: #e9e9e9;
+}
+
+.project-list {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+    gap: 20px;
+}
+
+.project-item {
+    background-color: #fff;
+    padding: 20px;
+    border-radius: 8px;
+    box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
+    opacity: 0;
+    transform: translateY(20px);
+    transition: opacity 0.5s ease, transform 0.5s ease; /* Staggered Fade-In Effect */
+}
+
+.project-item.visible {
+    opacity: 1;
+    transform: translateY(0);
+}
+
+.project-item h3 {
+    margin-top: 0;
+}
+
+#contact {
+    padding: 50px;
+    background-color: #fff;
+    text-align: center;
+}
+
+#contact a {
+    transition: text-shadow 0.3s ease; /* Glow Effect */
+}
+
+#contact a:hover {
+    text-shadow: 0 0 5px rgba(0, 123, 255, 0.8), 0 0 10px rgba(0, 123, 255, 0.6), 0 0 15px rgba(0, 123, 255, 0.4);
+}
+
+footer {
+    background-color: #333;
+    color: #fff;
+    text-align: center;
+    padding: 20px 0;
+}
+
+/* Smooth Scrolling */
+html {
+    scroll-behavior: smooth;
+}
+
+/* Scroll to Top Button */
+#scrollToTopBtn {
+    position: fixed;
+    bottom: 20px;
+    right: 20px;
+    display: none;
+    background-color: #333;
+    color: #fff;
+    border: none;
+    padding: 10px 15px;
+    border-radius: 50%;
+    cursor: pointer;
+    z-index: 1000;
+}
+
+#scrollToTopBtn:hover {
+    background-color: #555;
+}
+
+/* Fade-in Effect */
+.fade-in {
+    opacity: 0;
+    animation: fadeIn 2s ease forwards;
+}
+
+@keyframes fadeIn {
+    from { opacity: 0; }
+    to { opacity: 1; }
+}
