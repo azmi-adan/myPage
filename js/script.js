@@ -1,35 +1,28 @@
-document.addEventListener("DOMContentLoaded", function() {
+document.addEventListener('scroll', function () {
     const header = document.querySelector('header');
+    if (window.scrollY > 50) {
+        header.classList.add('scrolled');
+    } else {
+        header.classList.remove('scrolled');
+    }
+});
+
+window.addEventListener('scroll', () => {
+    document.querySelectorAll('.project-item').forEach((item) => {
+        const rect = item.getBoundingClientRect();
+        if (rect.top < window.innerHeight && rect.bottom > 0) {
+            item.classList.add('visible');
+        }
+    });
+
     const scrollToTopBtn = document.getElementById('scrollToTopBtn');
-    const projectItems = document.querySelectorAll('.project-item');
+    if (window.scrollY > 100) {
+        scrollToTopBtn.style.display = 'block';
+    } else {
+        scrollToTopBtn.style.display = 'none';
+    }
+});
 
-    // Navbar Scroll Effect
-    window.addEventListener('scroll', function() {
-        if (window.scrollY > 50) {
-            header.classList.add('scrolled');
-        } else {
-            header.classList.remove('scrolled');
-        }
-
-        // Show/Hide Scroll to Top Button
-        if (window.scrollY > 100) {
-            scrollToTopBtn.style.display = "block";
-        } else {
-            scrollToTopBtn.style.display = "none";
-        }
-
-        // Project Items Fade-In Effect
-        projectItems.forEach(item => {
-            const itemPosition = item.getBoundingClientRect().top;
-            const screenPosition = window.innerHeight / 1.2;
-            if (itemPosition < screenPosition) {
-                item.classList.add('visible');
-            }
-        });
-    });
-
-    // Scroll to Top Button Click
-    scrollToTopBtn.addEventListener('click', function() {
-        window.scrollTo({ top: 0, behavior: 'smooth' });
-    });
+document.getElementById('scrollToTopBtn').addEventListener('click', () => {
+    window.scrollTo({ top: 0, behavior: 'smooth' });
 });
